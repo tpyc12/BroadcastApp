@@ -9,16 +9,9 @@ class MyReceiver: BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {
         when(intent?.action){
-            ACTION_CLICKED -> {
-                val count = intent.getIntExtra("Count", 0)
-                Toast.makeText(context, "Click $count", Toast.LENGTH_SHORT).show()
-            }
-            Intent.ACTION_AIRPLANE_MODE_CHANGED -> {
-                Toast.makeText(context, "Airplane mode changed", Toast.LENGTH_SHORT).show()
-            }
-            Intent.ACTION_BATTERY_LOW -> {
-                val turnedOn = intent.getBooleanExtra("state", false)
-                Toast.makeText(context, "Battery low $turnedOn", Toast.LENGTH_SHORT).show()
+            "loaded" -> {
+                val percent = intent.getIntExtra("percent", 0)
+                Toast.makeText(context, "Loaded: $percent", Toast.LENGTH_SHORT).show()
             }
         }
     }
